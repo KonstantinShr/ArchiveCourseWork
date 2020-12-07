@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Archive</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="username">Username</string>
+    <string name="sign_in">Войти</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="your_login">Your login</string>
+    <string name="second_name">Second name</string>
+</resources>

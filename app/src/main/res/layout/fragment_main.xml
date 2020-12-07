@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.archive.screens.main.MainFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/profileBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="профиль"
+            android:minWidth="250dp"
+            app:layout_constraintBottom_toTopOf="@+id/requestDocBtn"
+            app:layout_constraintEnd_toEndOf="@+id/requestDocBtn"
+            app:layout_constraintStart_toStartOf="@+id/requestDocBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <Button
+            android:id="@+id/requestDocBtn"
+            android:layout_width="250dp"
+            android:minWidth="250dp"
+            android:layout_height="wrap_content"
+            android:text="запросить документ"
+            app:layout_constraintBottom_toTopOf="@+id/requestsBtn"
+            app:layout_constraintEnd_toEndOf="@+id/requestsBtn"
+            app:layout_constraintStart_toStartOf="@+id/requestsBtn"
+            app:layout_constraintTop_toBottomOf="@+id/profileBtn" />
+
+        <Button
+            android:id="@+id/requestsBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="проверочные запросы"
+            android:minWidth="250dp"
+            app:layout_constraintBottom_toTopOf="@+id/clientReportBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/requestDocBtn" />
+
+        <Button
+            android:id="@+id/clientReportBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:minWidth="250dp"
+            android:text="справка об абонентах"
+            app:layout_constraintBottom_toTopOf="@+id/workReportBtn"
+            app:layout_constraintEnd_toEndOf="@+id/requestsBtn"
+            app:layout_constraintStart_toStartOf="@+id/requestsBtn"
+            app:layout_constraintTop_toBottomOf="@+id/requestsBtn" />
+
+        <Button
+            android:id="@+id/workReportBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:minWidth="250dp"
+            android:text="отчет о работе"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/clientReportBtn"
+            app:layout_constraintStart_toStartOf="@+id/clientReportBtn"
+            app:layout_constraintTop_toBottomOf="@+id/clientReportBtn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+</layout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.signUp.SignUpFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/usernameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/your_login"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/registrationUsernameEditText"
+            app:layout_constraintStart_toStartOf="@+id/secondNameTV" />
+
+        <EditText
+            android:id="@+id/registrationUsernameEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="@string/username"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/registrationSecondNameEditText"
+            app:layout_constraintEnd_toEndOf="@+id/registrationSecondNameEditText"
+            app:layout_constraintStart_toStartOf="@+id/registrationSecondNameEditText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:id="@+id/secondNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/second_name"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/registrationSecondNameEditText"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/registrationSecondNameEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:ems="10"
+            android:hint="Ivanov"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/registrationFirstNameEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/secondNameTV"
+            app:layout_constraintTop_toBottomOf="@+id/registrationUsernameEditText" />
+
+        <TextView
+            android:id="@+id/firstNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First name"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/registrationFirstNameEditText"
+            app:layout_constraintStart_toStartOf="@+id/secondNameTV" />
+
+        <EditText
+            android:id="@+id/registrationFirstNameEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ivan"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/registrationPatronymicEditText"
+            app:layout_constraintEnd_toEndOf="@+id/registrationSecondNameEditText"
+            app:layout_constraintStart_toStartOf="@+id/registrationSecondNameEditText"
+            app:layout_constraintTop_toBottomOf="@+id/registrationSecondNameEditText" />
+
+        <TextView
+            android:id="@+id/patronymicTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patronymic"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/registrationPatronymicEditText"
+            app:layout_constraintStart_toStartOf="@+id/firstNameTV" />
+
+        <EditText
+            android:id="@+id/registrationPatronymicEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ivanovich"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/isAdminCheckBox"
+            app:layout_constraintEnd_toEndOf="@+id/registrationFirstNameEditText"
+            app:layout_constraintStart_toStartOf="@+id/registrationFirstNameEditText"
+            app:layout_constraintTop_toBottomOf="@+id/registrationFirstNameEditText" />
+
+        <CheckBox
+            android:id="@+id/isAdminCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="50dp"
+            android:text="Make administrator"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/signUpBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="зарегистрироваться"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+</layout>
