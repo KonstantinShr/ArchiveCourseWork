@@ -11,10 +11,10 @@ data class Department(
         val depId: Long = 0L,
 
         @ColumnInfo(name = "name_of_department")
-        val depName: String = "",
+        val depName: String,
 
         @ColumnInfo(name = "tel")
-        var telephone: String = "12345678901",
+        var telephone: String,
 
         @ColumnInfo(name = "requests_count")
         var reqCount: Int = 0

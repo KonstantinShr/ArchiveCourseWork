@@ -11,5 +11,5 @@ data class DocumentTheme(
     val themeId: Long = 0L,
 
     @ColumnInfo(name = "name_of_the_theme")
-    var theme: String = ""
+    var theme: String
 )
