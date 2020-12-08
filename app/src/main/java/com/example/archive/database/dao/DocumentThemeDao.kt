@@ -3,9 +3,9 @@ package com.example.archive.database.dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Update
-import com.example.archive.database.enteties.Department
+import com.example.archive.database.enteties.DocumentTheme
 
-interface DocumentTheme {
+interface DocumentThemeDao {
     @Insert
     suspend fun insert(documentTheme: DocumentTheme)
 
