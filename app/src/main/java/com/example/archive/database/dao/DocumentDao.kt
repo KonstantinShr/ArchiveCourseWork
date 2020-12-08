@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Update
-import com.example.archive.database.enteties.Department
 import com.example.archive.database.enteties.Document
 
 @Dao
