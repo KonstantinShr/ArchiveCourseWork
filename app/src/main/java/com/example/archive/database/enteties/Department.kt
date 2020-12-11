@@ -5,7 +5,8 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "departments", indices = [Index(value = ["name_of_department", "tel"], unique = true)])
+@Entity(tableName = "departments", indices = [Index(value = ["name_of_department"], unique = true),
+                                              Index(value =  ["tel"], unique = true)])
 data class Department(
         @PrimaryKey(autoGenerate = true)
         val depId: Long = 0L,

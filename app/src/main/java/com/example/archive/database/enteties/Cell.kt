@@ -5,7 +5,7 @@ import java.util.*
 
 
 @Entity(tableName = "cell_table",
-        indices = [Index(value = ["name_of_doc_in_cell"], unique = true)],
+        indices = [Index(value = ["name_of_doc_in_cell"], unique = true), Index(value = ["who_did_last_request"])],
         foreignKeys = [ForeignKey(entity = Document::class,
                                   parentColumns = ["name_of_doc"],
                                   childColumns = ["name_of_doc_in_cell"]),
@@ -23,10 +23,10 @@ data class Cell(
         var docCount: Int = 0,
 
         @ColumnInfo(name = "creation_date")
-        val creationDate: Date = Date(),
+        val creationDate: Long = System.currentTimeMillis(),
 
         @ColumnInfo(name = "request_date")
-        var requestDate: Date = Date(),
+        var requestDate: Long = 0L,
 
         @ColumnInfo(name = "who_did_last_request")
         var lastUser: String,

@@ -7,7 +7,7 @@ import androidx.room.*
         foreignKeys = [ForeignKey(entity = Department::class,
                                   parentColumns = ["name_of_department"],
                                   childColumns = ["department"])],
-        indices = [Index(value = ["username"], unique = true)])
+        indices = [Index(value = ["username"], unique = true), Index(value = ["department"])])
 data class User(
         @PrimaryKey(autoGenerate = false)
         val username: String,

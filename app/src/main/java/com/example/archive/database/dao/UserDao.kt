@@ -1,9 +1,6 @@
 package com.example.archive.database.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 import com.example.archive.database.enteties.User
 
 
@@ -17,4 +14,7 @@ interface UserDao {
 
     @Delete
     suspend fun delete(user: User)
+
+    @Query("SELECT * FROM user_table WHERE username = :username")
+    suspend fun get(username: String) : User?
 }

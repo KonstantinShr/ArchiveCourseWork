@@ -7,7 +7,9 @@ import androidx.room.*
         foreignKeys = [ForeignKey(entity = DocumentTheme::class,
                                   parentColumns = ["name_of_the_theme"],
                                   childColumns = ["theme_of_doc"])],
-        indices = [Index(value = ["num", "name_of_doc"], unique = true)])
+        indices = [Index(value = ["num"], unique = true),
+                   Index(value =  ["name_of_doc"], unique = true),
+                   Index(value = ["theme_of_doc"])])
 data class Document(
         @PrimaryKey(autoGenerate = false)
         val num: String,
