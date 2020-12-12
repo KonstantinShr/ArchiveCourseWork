@@ -1,9 +1,6 @@
 package com.example.archive.database.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 import com.example.archive.database.enteties.Department
 
 
@@ -17,4 +14,7 @@ interface DepartmentDao {
 
     @Delete
     suspend fun delete(department: Department)
+
+    @Query("SELECT * FROM departments_table")
+    suspend fun getAllDepartment() : List<Department>
 }

@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.archive.R
 import com.example.archive.database.ArchiveDatabase
+import com.example.archive.database.enteties.User
 import com.example.archive.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
@@ -41,9 +42,9 @@ class SignUpFragment : Fragment() {
         binding.signUpBtn.setOnClickListener(onClickListener)
         binding.signUpBackBtn.setOnClickListener(onClickListener)
 
-        viewModel.navigateToMain.observe(viewLifecycleOwner, Observer { un: String? ->
-            un?.let{
-                this.findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToMainFragment(un))
+        viewModel.navigateToMain.observe(viewLifecycleOwner, Observer { username: String? ->
+            username?.let{
+                this.findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToMainFragment(username))
                 viewModel.doneNavigateToMain()
             }
         })
