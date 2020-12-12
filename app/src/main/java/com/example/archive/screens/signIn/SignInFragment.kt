@@ -53,8 +53,11 @@ class SignInFragment : Fragment() {
         binding.signInButton.setOnClickListener(onClickListener)
         binding.signUpButton.setOnClickListener(onClickListener)
 
-        viewModel.navigateToMainEvent.observe(viewLifecycleOwner, Observer {
-            this.findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToMainFragment())
+        viewModel.navigateToMain.observe(viewLifecycleOwner, Observer {username: String? ->
+            username?.let{
+                this.findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToMainFragment(username))
+                viewModel.doneNavigateToMain()
+            }
         })
 
         return binding.root

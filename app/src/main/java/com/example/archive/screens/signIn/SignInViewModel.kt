@@ -18,13 +18,9 @@ class SignInViewModel(
 
     private var username: String = ""
 
-    private var _user = MutableLiveData<User?>()
-    val user: LiveData<User?>
-        get() = _user
-
-    private var _navigateToMainEvent = MutableLiveData<Boolean>()
-    val navigateToMainEvent: LiveData<Boolean>
-        get() = _navigateToMainEvent
+    private var _navigateToMain = MutableLiveData<String?>()
+    val navigateToMain: LiveData<String?>
+        get() = _navigateToMain
 
     fun updateUsername(un: String){
         username = un
@@ -36,18 +32,18 @@ class SignInViewModel(
 
     }
 
-    suspend fun getUserOrNull(un: String){
+    private suspend fun getUserOrNull(un: String){
         val user: User? = database.userDao.get(un)
         if (user == null){
             Log.d("USERINFO", "user not found")
         }
         else{
-            _navigateToMainEvent.value = true
+            _navigateToMain.value = user.username
         }
     }
 
     fun doneNavigateToMain(){
-        _navigateToMainEvent.value = false
+        _navigateToMain.value = null
     }
 
 

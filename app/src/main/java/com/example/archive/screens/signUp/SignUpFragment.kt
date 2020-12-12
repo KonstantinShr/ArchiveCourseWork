@@ -44,6 +44,7 @@ class SignUpFragment : Fragment() {
         viewModel.navigateToMain.observe(viewLifecycleOwner, Observer { un: String? ->
             un?.let{
                 this.findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToMainFragment(un))
+                viewModel.doneNavigateToMain()
             }
         })
         return binding.root

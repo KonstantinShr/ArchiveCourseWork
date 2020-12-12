@@ -27,7 +27,7 @@ class CheckingRequestsFragment : Fragment() {
 
     private val onClickListener = View.OnClickListener { view: View ->
         when (view.id){
-            binding.checkingReqBackBtn.id -> view.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToMainFragment())
+            //binding.checkingReqBackBtn.id -> view.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToMainFragment())
         }
     }
 }

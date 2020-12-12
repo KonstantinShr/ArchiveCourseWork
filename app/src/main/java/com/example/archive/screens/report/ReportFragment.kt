@@ -28,7 +28,7 @@ class ReportFragment : Fragment() {
 
     private val onClickListener = View.OnClickListener { view: View ->
         when (view.id){
-            binding.reportBackBtn.id -> view.findNavController().navigate(ReportFragmentDirections.actionReportFragmentToMainFragment())
+            //binding.reportBackBtn.id -> view.findNavController().navigate(ReportFragmentDirections.actionReportFragmentToMainFragment())
         }
     }
 }

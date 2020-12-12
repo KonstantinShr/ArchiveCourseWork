@@ -64,10 +64,21 @@
             android:layout_height="wrap_content"
             android:minWidth="250dp"
             android:text="отчет о работе"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/exitBtn"
             app:layout_constraintEnd_toEndOf="@+id/clientReportBtn"
             app:layout_constraintStart_toStartOf="@+id/clientReportBtn"
             app:layout_constraintTop_toBottomOf="@+id/clientReportBtn" />
+
+        <Button
+            android:id="@+id/exitBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="выйти"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
 </layout>

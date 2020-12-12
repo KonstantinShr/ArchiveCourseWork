@@ -28,7 +28,7 @@ class GetDocumentFragment : Fragment() {
 
     private val onClickListener = View.OnClickListener { view: View ->
         when (view.id){
-            binding.getDocBackBtn.id -> view.findNavController().navigate(GetDocumentFragmentDirections.actionGetDocumentFragmentToMainFragment())
+            //binding.getDocBackBtn.id -> view.findNavController().navigate(GetDocumentFragmentDirections.actionGetDocumentFragmentToMainFragment())
         }
     }
 }

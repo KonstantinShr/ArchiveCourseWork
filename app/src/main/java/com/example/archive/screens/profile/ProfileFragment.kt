@@ -28,7 +28,7 @@ class ProfileFragment : Fragment() {
 
     private val onClickListener = View.OnClickListener { view: View ->
         when (view.id){
-            binding.profileBackBtn.id -> view.findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToMainFragment())
+            //binding.profileBackBtn.id -> view.findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToMainFragment())
         }
     }
 }

@@ -24,4 +24,8 @@ class SignUpViewModel(
                 _navigateToMain.value = newUser.username
                 Log.d("REGISTRATION", "${newUser.username} ${newUser.realName} ${newUser.permissions}")
             }
+
+        fun doneNavigateToMain(){
+            _navigateToMain.value = null
+        }
 }
