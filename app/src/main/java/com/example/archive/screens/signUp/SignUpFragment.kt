@@ -1,10 +1,12 @@
 package com.example.archive.screens.signUp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +21,7 @@ class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignUpBinding
     private lateinit var viewModel: SignUpViewModel
+    private var departmentNames: MutableList<String> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,8 +42,14 @@ class SignUpFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
+
+
         binding.signUpBtn.setOnClickListener(onClickListener)
         binding.signUpBackBtn.setOnClickListener(onClickListener)
+
+        viewModel.departmentsString.observe(viewLifecycleOwner, Observer { depNames: List<String> ->
+            updateDepNames(depNames)
+        })
 
         viewModel.navigateToMain.observe(viewLifecycleOwner, Observer { username: String? ->
             username?.let{
@@ -58,10 +67,11 @@ class SignUpFragment : Fragment() {
                 val firstName = binding.registrationFirstNameEditText.text.toString()
                 val secondName = binding.registrationSecondNameEditText.text.toString()
                 val patronymic = binding.registrationPatronymicEditText.text.toString()
+                val department = binding.spinner.selectedItem.toString()
                 val isAdmin = binding.isAdminCheckBox.isChecked
 
                 if ((username != "") and (firstName != "") and (secondName != "") and (patronymic != "")){
-                    viewModel.registration(username, "$secondName $firstName $patronymic", isAdmin)
+                    viewModel.registration(username, "$secondName $firstName $patronymic", department, isAdmin)
                 }
             }
 
@@ -69,5 +79,16 @@ class SignUpFragment : Fragment() {
                 view.findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToSignInFragment())
             }
         }
+    }
+
+    private fun updateDepNames(depNames: List<String>){
+        for (i in depNames.indices){
+            departmentNames.add(depNames[i])
+        }
+        Log.d("DepartmanetsNames", departmentNames.size.toString())
+        val adapter = ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item, departmentNames)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        binding.spinner.adapter = adapter
     }
 }

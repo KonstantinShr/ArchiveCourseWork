@@ -11,7 +11,7 @@ import com.example.archive.database.enteties.*
                       Department::class,
                       Document::class,
                       DocumentTheme::class,
-                      User::class], version = 1, exportSchema = false)
+                      User::class], version = 2, exportSchema = false)
 abstract class ArchiveDatabase : RoomDatabase() {
 
     abstract val cellDao: CellDao
