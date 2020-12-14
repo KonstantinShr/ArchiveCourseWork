@@ -30,13 +30,20 @@ class SignUpViewModel(
             getAllDepartments()
         }
 
-            fun registration(un: String, realName: String, department: String, perm: Boolean){
+        fun registration(un: String, realName: String, department: String, perm: Boolean){
+            viewModelScope.launch {
                 val newUser = User(un, realName, department, perm)
 
-                //вставить регистрацию пользователя в бд
+                registrate(newUser)
+                    
                 _navigateToMain.value = newUser.username
                 Log.d("REGISTRATION", "${newUser.username} ${newUser.realName} ${newUser.depName} ${newUser.permissions}")
+                }
             }
+
+        private suspend fun registrate(user: User){
+            database.userDao.insert(user)
+        }
 
         fun doneNavigateToMain(){
             _navigateToMain.value = null
