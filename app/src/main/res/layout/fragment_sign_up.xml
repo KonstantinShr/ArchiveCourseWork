@@ -98,10 +98,11 @@
             android:id="@+id/registrationPatronymicEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:ems="10"
             android:hint="Ivanovich"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/isAdminCheckBox"
+            app:layout_constraintBottom_toTopOf="@+id/spinner"
             app:layout_constraintEnd_toEndOf="@+id/registrationFirstNameEditText"
             app:layout_constraintStart_toStartOf="@+id/registrationFirstNameEditText"
             app:layout_constraintTop_toBottomOf="@+id/registrationFirstNameEditText" />
@@ -141,12 +142,10 @@
             android:id="@+id/spinner"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/isAdminCheckBox"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registrationPatronymicEditText" />
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
 </layout>

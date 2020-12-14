@@ -17,7 +17,7 @@ class SignInViewModel(
 
 ): AndroidViewModel(application) {
 
-    private var username: String = ""
+    private var username: String? = null
 
     private var _navigateToMain = MutableLiveData<String?>()
     val navigateToMain: LiveData<String?>
@@ -29,16 +29,14 @@ class SignInViewModel(
 
     fun updateUsername(un: String){
         username = un
-        Log.d("username_update", username)
-
         viewModelScope.launch {
             getUserOrNull(username)
         }
 
     }
 
-    private suspend fun getUserOrNull(un: String){
-        val user: User? = database.userDao.get(un)
+    private suspend fun getUserOrNull(un: String?){
+        val user: User? = un?.let { database.userDao.get(it) }
         if (user == null){
             Log.d("USERINFO", "user not found")
         }

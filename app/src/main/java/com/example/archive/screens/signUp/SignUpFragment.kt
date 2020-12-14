@@ -74,7 +74,6 @@ class SignUpFragment : Fragment() {
                     viewModel.registration(username, "$secondName $firstName $patronymic", department, isAdmin)
                 }
             }
-
             binding.signUpBackBtn.id -> {
                 view.findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToSignInFragment())
             }

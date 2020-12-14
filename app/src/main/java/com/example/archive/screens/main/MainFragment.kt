@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.archive.R
+import com.example.archive.database.ArchiveDatabase
 import com.example.archive.databinding.FragmentMainBinding
 import com.example.archive.screens.signIn.SignInFragmentDirections
 
@@ -24,10 +28,26 @@ class MainFragment : Fragment() {
 
         arguments = MainFragmentArgs.fromBundle(requireArguments())
 
+        val application = requireNotNull(this.activity).application
 
+        val database = ArchiveDatabase.getInstance(application)
+
+        val viewModelFactory = MainViewModelFactory(arguments.username, database, application)
+
+        val viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+
+        binding.mainViewModel = viewModel
+
+        binding.lifecycleOwner = this
+
+        viewModel.navigateToProfile.observe(viewLifecycleOwner, Observer { username: String? ->
+            username?.let{
+                this.findNavController().navigate(MainFragmentDirections.actionMainFragmentToProfileFragment(username))
+                viewModel.doneNavigateToProfile()
+            }
+        })
 
         binding.clientReportBtn.setOnClickListener(onClickListener)
-        binding.profileBtn.setOnClickListener(onClickListener)
         binding.requestDocBtn.setOnClickListener(onClickListener)
         binding.requestsBtn.setOnClickListener(onClickListener)
         binding.workReportBtn.setOnClickListener(onClickListener)
@@ -40,14 +60,12 @@ class MainFragment : Fragment() {
         when (view.id){
             binding.clientReportBtn.id, binding.workReportBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToReportFragment())
 
-            binding.profileBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToProfileFragment())
-
             binding.requestDocBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToGetDocumentFragment())
 
             binding.requestsBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToCheckingRequestsFragment())
 
             binding.exitBtn.id -> {
-                Log.d("ARGUMENTS", arguments.username)
+                Log.d("ARGUMENTS", arguments.username.toString())
                 view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToSignInFragment())
             }
         }
