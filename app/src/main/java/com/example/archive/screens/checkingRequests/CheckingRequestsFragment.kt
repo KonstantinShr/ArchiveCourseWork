@@ -6,11 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.archive.R
 import com.example.archive.database.ArchiveDatabase
 import com.example.archive.databinding.FragmentCheckingRequestsBinding
 import com.example.archive.databinding.FragmentGetDocumentBinding
+import com.example.archive.screens.profile.ProfileFragmentDirections
 
 class CheckingRequestsFragment : Fragment() {
     private lateinit var binding: FragmentCheckingRequestsBinding
@@ -28,15 +32,26 @@ class CheckingRequestsFragment : Fragment() {
 
         val database = ArchiveDatabase.getInstance(application)
 
+        val viewModelFactory = CheckingRequestsViewModelFactory(arguments.username, database, application)
 
+        val viewModel = ViewModelProvider(this, viewModelFactory).get(CheckingRequestsViewModel::class.java)
 
-        binding.checkingReqBackBtn.setOnClickListener(onClickListener)
+        binding.checkingRequestsViewModel = viewModel
+        binding.lifecycleOwner = this
+
+        viewModel.navigateToMain.observe(viewLifecycleOwner, Observer { username: String? ->
+            username?.let{
+                this.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToMainFragment(username))
+                viewModel.doneNavigateToMain()
+            }
+        })
+
+        viewModel.navigateToAdminPanel.observe(viewLifecycleOwner, Observer{ username: String? ->
+            username?.let{
+                this.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToAdminPanelFragment(username))
+                viewModel.doneNavigateToAdminPanel()
+            }
+        })
         return binding.root
-    }
-
-    private val onClickListener = View.OnClickListener { view: View ->
-        when (view.id){
-            //binding.checkingReqBackBtn.id -> view.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToMainFragment())
-        }
     }
 }
