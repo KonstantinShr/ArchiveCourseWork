@@ -47,10 +47,16 @@ class MainFragment : Fragment() {
             }
         })
 
-        binding.clientReportBtn.setOnClickListener(onClickListener)
+        viewModel.navigateToCheckingReq.observe(viewLifecycleOwner, Observer { username: String? ->
+            username?.let{
+                this.findNavController().navigate(MainFragmentDirections.actionMainFragmentToCheckingRequestsFragment(username))
+                viewModel.doneNavigateToCheckingReq()
+            }
+        })
+
+        //binding.clientReportBtn.setOnClickListener(onClickListener)
         binding.requestDocBtn.setOnClickListener(onClickListener)
-        binding.requestsBtn.setOnClickListener(onClickListener)
-        binding.workReportBtn.setOnClickListener(onClickListener)
+        //binding.workReportBtn.setOnClickListener(onClickListener)
         binding.exitBtn.setOnClickListener(onClickListener)
 
         return binding.root
@@ -58,14 +64,12 @@ class MainFragment : Fragment() {
 
     private val onClickListener = View.OnClickListener { view: View ->
         when (view.id){
-            binding.clientReportBtn.id, binding.workReportBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToReportFragment())
+            //binding.clientReportBtn.id, binding.workReportBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToReportFragment())
 
-            binding.requestDocBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToGetDocumentFragment())
+            binding.requestDocBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToGetDocumentFragment(arguments.username))
 
-            binding.requestsBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToCheckingRequestsFragment())
 
             binding.exitBtn.id -> {
-                Log.d("ARGUMENTS", arguments.username.toString())
                 view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToSignInFragment())
             }
         }

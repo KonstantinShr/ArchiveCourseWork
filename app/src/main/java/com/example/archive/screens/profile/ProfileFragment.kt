@@ -30,8 +30,6 @@ class ProfileFragment : Fragment() {
 
         arguments = ProfileFragmentArgs.fromBundle(requireArguments())
 
-        //binding.profileBackBtn.setOnClickListener(onClickListener)
-
         val application = requireNotNull(this.activity).application
 
         val database = ArchiveDatabase.getInstance(application)
@@ -52,14 +50,5 @@ class ProfileFragment : Fragment() {
 
 
         return binding.root
-    }
-
-    private val onClickListener = View.OnClickListener { view: View ->
-        when (view.id){
-            binding.profileBackBtn.id -> {
-                Log.d("USERNAME FROM PROFILE", arguments.username.toString())
-                view.findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToMainFragment(arguments.username))
-            }
-        }
     }
 }

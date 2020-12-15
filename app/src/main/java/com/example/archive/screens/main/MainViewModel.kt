@@ -22,4 +22,16 @@ class MainViewModel(
     fun doneNavigateToProfile(){
         _navigateToProfile.value = null
     }
+
+    private var _navigateToCheckingReq = MutableLiveData<String?>()
+    val navigateToCheckingReq: LiveData<String?>
+        get() = _navigateToCheckingReq
+
+    fun onCheckingReq(){
+        _navigateToCheckingReq.value = username
+    }
+
+    fun doneNavigateToCheckingReq(){
+        _navigateToCheckingReq.value = null
+    }
 }

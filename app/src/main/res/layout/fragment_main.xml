@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:text="проверочные запросы"
             android:minWidth="250dp"
+            android:onClick="@{() -> mainViewModel.onCheckingReq()}"
             app:layout_constraintBottom_toTopOf="@+id/clientReportBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

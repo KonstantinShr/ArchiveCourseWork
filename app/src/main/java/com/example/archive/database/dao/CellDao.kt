@@ -1,9 +1,6 @@
 package com.example.archive.database.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 import com.example.archive.database.enteties.Cell
 
 @Dao
@@ -16,4 +13,7 @@ interface CellDao {
 
     @Delete
     suspend fun delete(cell: Cell)
+
+    @Query("SELECT * FROM cell_table WHERE name_of_doc_in_cell = :docName")
+    suspend fun get(docName: String) : Cell?
 }

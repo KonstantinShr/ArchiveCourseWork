@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="getDocumentViewModel"
+            type="com.example.archive.screens.getDocument.GetDocumentViewModel" />
+    </data>
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,18 +22,47 @@
             android:id="@+id/getDocBackBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:onClick="@{() -> getDocumentViewModel.onBack()}"
             android:text="назад"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="GET DOCUMENT FRAGMENT"
-        android:textSize="30sp"/>
+        <EditText
+            android:id="@+id/docNameEditText"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/doReqBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputDocNameTV" />
+
+        <TextView
+            android:id="@+id/inputDocNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:text="Введите название документа"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/docNameEditText"
+            app:layout_constraintStart_toStartOf="@+id/docNameEditText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/doReqBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="запросить"
+            app:layout_constraintStart_toStartOf="@+id/docNameEditText"
+            app:layout_constraintTop_toBottomOf="@+id/docNameEditText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
 </layout>

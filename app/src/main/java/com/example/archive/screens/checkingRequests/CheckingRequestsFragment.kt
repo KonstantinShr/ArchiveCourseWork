@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.archive.R
+import com.example.archive.database.ArchiveDatabase
 import com.example.archive.databinding.FragmentCheckingRequestsBinding
 import com.example.archive.databinding.FragmentGetDocumentBinding
 
@@ -20,6 +21,14 @@ class CheckingRequestsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_checking_requests, container, false)
+
+        val arguments = CheckingRequestsFragmentArgs.fromBundle((requireArguments()))
+
+        val application = requireNotNull(this.activity).application
+
+        val database = ArchiveDatabase.getInstance(application)
+
+
 
         binding.checkingReqBackBtn.setOnClickListener(onClickListener)
         return binding.root

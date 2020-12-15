@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminPanelFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/newDocBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="добавить новый документ"
+            app:layout_constraintBottom_toTopOf="@+id/editDepNumberBtn"
+            app:layout_constraintEnd_toEndOf="@+id/editDepNumberBtn"
+            app:layout_constraintStart_toStartOf="@+id/editDepNumberBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <Button
+            android:id="@+id/editDepNumberBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="изменить номер отдела"
+            app:layout_constraintBottom_toTopOf="@+id/deleteCopyOfDocBtn"
+            app:layout_constraintEnd_toEndOf="@+id/deleteCopyOfDocBtn"
+            app:layout_constraintStart_toStartOf="@+id/deleteCopyOfDocBtn"
+            app:layout_constraintTop_toBottomOf="@+id/newDocBtn" />
+
+        <Button
+            android:id="@+id/deleteCopyOfDocBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="удалить экземпляр документа"
+            app:layout_constraintBottom_toTopOf="@+id/adminPanelBackBtn"
+            app:layout_constraintEnd_toEndOf="@+id/adminPanelBackBtn"
+            app:layout_constraintStart_toStartOf="@+id/adminPanelBackBtn"
+            app:layout_constraintTop_toBottomOf="@+id/editDepNumberBtn" />
+
+        <Button
+            android:id="@+id/adminPanelBackBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="назад"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deleteCopyOfDocBtn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

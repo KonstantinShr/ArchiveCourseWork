@@ -18,4 +18,7 @@ interface DepartmentDao {
 
     @Query("SELECT * FROM departments_table")
     suspend fun getAllDepartment() : List<Department>
+
+    @Query("SELECT * FROM departments_table WHERE name_of_department = :department")
+    suspend fun get(department: String) : Department?
 }

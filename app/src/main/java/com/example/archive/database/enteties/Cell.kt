@@ -5,16 +5,13 @@ import java.util.*
 
 
 @Entity(tableName = "cell_table",
-        indices = [Index(value = ["name_of_doc_in_cell"], unique = true), Index(value = ["who_did_last_request"])],
+        indices = [Index(value = ["name_of_doc_in_cell"], unique = true)],
         foreignKeys = [ForeignKey(entity = Document::class,
                                   parentColumns = ["name_of_doc"],
-                                  childColumns = ["name_of_doc_in_cell"]),
-                       ForeignKey(entity = User::class,
-                                  parentColumns = ["username"],
-                                  childColumns = ["who_did_last_request"])])
+                                  childColumns = ["name_of_doc_in_cell"])])
 data class Cell(
-        @PrimaryKey(autoGenerate = false)
-        val cellId: Int,
+        @PrimaryKey(autoGenerate = true)
+        val cellId: Long = 0L,
 
         @ColumnInfo(name = "name_of_doc_in_cell")
         var docInCell: String,
@@ -23,14 +20,5 @@ data class Cell(
         var docCount: Int = 0,
 
         @ColumnInfo(name = "creation_date")
-        val creationDate: Long = System.currentTimeMillis(),
-
-        @ColumnInfo(name = "request_date")
-        var requestDate: Long = 0L,
-
-        @ColumnInfo(name = "who_did_last_request")
-        var lastUser: String,
-
-        @ColumnInfo(name = "count_of_requests")
-        var reqCount: Int = 0
+        val creationDate: Long = System.currentTimeMillis()
 )

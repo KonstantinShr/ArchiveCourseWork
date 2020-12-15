@@ -11,7 +11,8 @@ import com.example.archive.database.enteties.*
                       Department::class,
                       Document::class,
                       DocumentTheme::class,
-                      User::class], version = 2, exportSchema = false)
+                      User::class,
+                      Request::class], version = 3, exportSchema = false)
 abstract class ArchiveDatabase : RoomDatabase() {
 
     abstract val cellDao: CellDao
@@ -23,6 +24,8 @@ abstract class ArchiveDatabase : RoomDatabase() {
     abstract val documentThemeDao: DocumentThemeDao
 
     abstract val userDao: UserDao
+
+    abstract val requestDao: RequestDao
 
     companion object{
         /**

@@ -14,20 +14,88 @@
 
         <Button
             android:id="@+id/checkingReqBackBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
             android:text="назад"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/panelOfAdminBtn" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="CHECKING REQUESTS FRAGMENT"
-        android:textSize="30sp"/>
+        <Button
+            android:id="@+id/frequentlyDocBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="самый частый док"
+            app:layout_constraintBottom_toTopOf="@+id/countOfDocForThemeBtn"
+            app:layout_constraintEnd_toEndOf="@+id/countOfDocForThemeBtn"
+            app:layout_constraintStart_toStartOf="@+id/countOfDocForThemeBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <Button
+            android:id="@+id/countOfDocForThemeBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="количество доков на тему"
+            app:layout_constraintBottom_toTopOf="@+id/themeOfDocBtn"
+            app:layout_constraintEnd_toEndOf="@+id/themeOfDocBtn"
+            app:layout_constraintStart_toStartOf="@+id/themeOfDocBtn"
+            app:layout_constraintTop_toBottomOf="@+id/frequentlyDocBtn" />
+
+        <Button
+            android:id="@+id/themeOfDocBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="тема по названию дока"
+            app:layout_constraintBottom_toTopOf="@+id/mostCopiedDocBtn"
+            app:layout_constraintEnd_toEndOf="@+id/mostCopiedDocBtn"
+            app:layout_constraintStart_toStartOf="@+id/mostCopiedDocBtn"
+            app:layout_constraintTop_toBottomOf="@+id/countOfDocForThemeBtn" />
+
+        <Button
+            android:id="@+id/mostCopiedDocBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="самый распространенный док"
+            app:layout_constraintBottom_toTopOf="@+id/frequentlyDepBtn"
+            app:layout_constraintEnd_toEndOf="@+id/frequentlyDepBtn"
+            app:layout_constraintStart_toStartOf="@+id/frequentlyDepBtn"
+            app:layout_constraintTop_toBottomOf="@+id/themeOfDocBtn" />
+
+        <Button
+            android:id="@+id/frequentlyDepBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="самый обращающийся отдел"
+            app:layout_constraintBottom_toTopOf="@+id/lastClientBtn"
+            app:layout_constraintEnd_toEndOf="@+id/lastClientBtn"
+            app:layout_constraintStart_toStartOf="@+id/lastClientBtn"
+            app:layout_constraintTop_toBottomOf="@+id/mostCopiedDocBtn" />
+
+        <Button
+            android:id="@+id/lastClientBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="последний обращавшийся к доку"
+            app:layout_constraintBottom_toTopOf="@+id/panelOfAdminBtn"
+            app:layout_constraintEnd_toEndOf="@+id/panelOfAdminBtn"
+            app:layout_constraintStart_toStartOf="@+id/panelOfAdminBtn"
+            app:layout_constraintTop_toBottomOf="@+id/frequentlyDepBtn" />
+
+        <Button
+            android:id="@+id/panelOfAdminBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="панель администратора"
+            app:layout_constraintBottom_toTopOf="@+id/checkingReqBackBtn"
+            app:layout_constraintEnd_toEndOf="@+id/checkingReqBackBtn"
+            app:layout_constraintStart_toStartOf="@+id/checkingReqBackBtn"
+            app:layout_constraintTop_toBottomOf="@+id/lastClientBtn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
 </layout>
