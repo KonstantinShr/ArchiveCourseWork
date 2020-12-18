@@ -1,9 +1,7 @@
 package com.example.archive.database.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
+import com.example.archive.database.enteties.Department
 import com.example.archive.database.enteties.DocumentTheme
 
 @Dao
@@ -16,4 +14,7 @@ interface DocumentThemeDao {
 
     @Delete
     suspend fun delete(documentTheme: DocumentTheme)
+
+    @Query("SELECT * FROM documents_themes")
+    suspend fun getAllTheme() : List<DocumentTheme>
 }

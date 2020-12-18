@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.archive.database.ArchiveDatabase
 import com.example.archive.database.enteties.Department
+import com.example.archive.database.enteties.DocumentTheme
 import com.example.archive.database.enteties.User
 import kotlinx.coroutines.launch
 
@@ -25,6 +26,7 @@ class SignInViewModel(
 
     init {
         fillingDepartmentTable()
+        fillingDocThemeTable()
     }
 
     fun updateUsername(un: String){
@@ -72,6 +74,32 @@ class SignInViewModel(
         )
         for (department in departments){
             database.departmentDao.insert(department)
+        }
+    }
+
+    private fun fillingDocThemeTable(){
+        viewModelScope.launch {
+            val themes = getAllDocTheme()
+
+            if (themes.isEmpty()){
+                fillDocTheme()
+            }
+        }
+    }
+
+    private suspend fun getAllDocTheme() : List<DocumentTheme>{
+        return database.documentThemeDao.getAllTheme()
+    }
+
+    private suspend fun fillDocTheme(){
+        val themes: List<DocumentTheme> = listOf(DocumentTheme(theme = "Документы бухгалтерии"),
+            DocumentTheme(theme = "Документы отдела кадров"),
+            DocumentTheme(theme = "Документы отдела перевозок"),
+            DocumentTheme(theme = "Документы отдела маркетинга"),
+            DocumentTheme(theme = "Документы администрации")
+        )
+        for (theme in themes){
+            database.documentThemeDao.insert(theme)
         }
     }
 

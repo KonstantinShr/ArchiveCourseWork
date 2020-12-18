@@ -21,4 +21,16 @@ class AdminPanelViewModel(val username: String?,
     fun doneNavigateToCheckingRequest(){
         _navigateToCheckingRequest.value = null
     }
+
+    private var _navigateToLoadNewDoc = MutableLiveData<String?>()
+    val navigateToLoadNewDoc: LiveData<String?>
+        get() = _navigateToLoadNewDoc
+
+    fun onLoadNewDoc(){
+        _navigateToLoadNewDoc.value = username
+    }
+
+    fun doneNavigateToLoadNewDoc(){
+        _navigateToCheckingRequest.value = null
+    }
 }

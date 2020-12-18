@@ -84,7 +84,6 @@ class SignUpFragment : Fragment() {
         for (i in depNames.indices){
             departmentNames.add(depNames[i])
         }
-        Log.d("DepartmanetsNames", departmentNames.size.toString())
         val adapter = ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item, departmentNames)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 

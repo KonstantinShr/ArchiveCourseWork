@@ -16,4 +16,8 @@ interface CellDao {
 
     @Query("SELECT * FROM cell_table WHERE name_of_doc_in_cell = :docName")
     suspend fun get(docName: String) : Cell?
+
+    @Query("SELECT * FROM cell_table WHERE doc_count = 0 ORDER BY cellId ASC LIMIT 1")
+    suspend fun findEmptyCell() : Cell?
+
 }

@@ -5,13 +5,10 @@ import java.util.*
 
 
 @Entity(tableName = "cell_table",
-        indices = [Index(value = ["name_of_doc_in_cell"], unique = true)],
-        foreignKeys = [ForeignKey(entity = Document::class,
-                                  parentColumns = ["name_of_doc"],
-                                  childColumns = ["name_of_doc_in_cell"])])
+        indices = [Index(value = ["name_of_doc_in_cell"], unique = true)])
 data class Cell(
         @PrimaryKey(autoGenerate = true)
-        val cellId: Long = 0L,
+        var cellId: Long = 0L,
 
         @ColumnInfo(name = "name_of_doc_in_cell")
         var docInCell: String,

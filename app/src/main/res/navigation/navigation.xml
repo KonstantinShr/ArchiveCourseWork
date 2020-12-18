@@ -115,5 +115,50 @@
             android:name="username"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_adminPanelFragment_to_loadNewDocumentFragment"
+            app:destination="@id/loadNewDocumentFragment" />
+        <action
+            android:id="@+id/action_adminPanelFragment_to_changeDepNumberFragment"
+            app:destination="@id/changeDepNumberFragment" />
+        <action
+            android:id="@+id/action_adminPanelFragment_to_deleteDocCopyFragment"
+            app:destination="@id/deleteDocCopyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loadNewDocumentFragment"
+        android:name="com.example.archive.screens.loadNewDocument.LoadNewDocumentFragment"
+        android:label="LoadNewDocumentFragment" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_loadNewDocumentFragment_to_adminPanelFragment"
+            app:destination="@id/adminPanelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeDepNumberFragment"
+        android:name="com.example.archive.screens.changeDepartmentNumber.ChangeDepNumberFragment"
+        android:label="ChangeDepNumberFragment" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_changeDepNumberFragment_to_adminPanelFragment"
+            app:destination="@id/adminPanelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteDocCopyFragment"
+        android:name="com.example.archive.screens.deleteDocumentCopy.DeleteDocCopyFragment"
+        android:label="DeleteDocCopyFragment" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_deleteDocCopyFragment_to_adminPanelFragment"
+            app:destination="@id/adminPanelFragment" />
     </fragment>
 </navigation>

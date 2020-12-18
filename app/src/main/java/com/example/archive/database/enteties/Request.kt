@@ -8,13 +8,13 @@ import androidx.room.*
                    Index(value = ["cell_number"], unique = false)],
         foreignKeys = [ForeignKey(entity = User::class,
                                   parentColumns = ["username"],
-                                  childColumns = ["username"]),
+                                  childColumns = ["username"], onDelete = ForeignKey.CASCADE),
                        ForeignKey(entity = Cell::class,
                                   parentColumns = ["cellId"],
-                                  childColumns = ["cell_number"])])
+                                  childColumns = ["cell_number"], onDelete = ForeignKey.CASCADE)])
 data class Request(
         @PrimaryKey(autoGenerate = true)
-        val reqId: Long = 0L,
+        var reqId: Long = 0L,
 
         @ColumnInfo(name = "username")
         val username: String,

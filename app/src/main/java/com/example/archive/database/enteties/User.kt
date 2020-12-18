@@ -6,7 +6,7 @@ import androidx.room.*
 @Entity(tableName = "user_table",
         foreignKeys = [ForeignKey(entity = Department::class,
                                   parentColumns = ["name_of_department"],
-                                  childColumns = ["department"])],
+                                  childColumns = ["department"], onDelete = ForeignKey.CASCADE)],
         indices = [Index(value = ["username"], unique = true), Index(value = ["department"])])
 data class User(
         @PrimaryKey(autoGenerate = false)
