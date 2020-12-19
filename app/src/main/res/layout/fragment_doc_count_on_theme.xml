@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.archive.screens.docCountOnTheme.DocCountOnThemeViewModel" />
+    </data>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.archive.screens.docCountOnTheme.DocCountOnThemeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/docCountOnThemeBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:onClick="@{() -> viewModel.onBack()}"
+            android:text="назад"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/chooseThemeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выберите тему"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/themeSpinner"
+            app:layout_constraintStart_toStartOf="@+id/themeSpinner"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Spinner
+            android:id="@+id/themeSpinner"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/docCountBtn"
+            app:layout_constraintStart_toStartOf="@+id/docCountBtn"
+            app:layout_constraintTop_toBottomOf="@+id/chooseThemeTV" />
+
+        <Button
+            android:id="@+id/docCountBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="узнать количество документов"
+            app:layout_constraintBottom_toTopOf="@+id/docCountOnThemeBackBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/themeSpinner" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/docCountOnThemeBackBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/docCountBtn" />
+            android:text="@{viewModel.docsCount.toString()}"
+            app:layout_constraintBottom_toTopOf="@+id/docCountOnThemeBackBtn"
+            app:layout_constraintStart_toStartOf="@+id/docCountBtn"
+            app:layout_constraintTop_toBottomOf="@+id/docCountBtn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
+</layout>

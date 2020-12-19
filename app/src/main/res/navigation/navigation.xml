@@ -94,6 +94,24 @@
         <action
             android:id="@+id/action_checkingRequestsFragment_to_adminPanelFragment"
             app:destination="@id/adminPanelFragment" />
+        <action
+            android:id="@+id/action_checkingRequestsFragment_to_mostOftenDocFragment"
+            app:destination="@id/mostOftenDocFragment" />
+        <action
+            android:id="@+id/action_checkingRequestsFragment_to_docCountOnThemeFragment"
+            app:destination="@id/docCountOnThemeFragment" />
+        <action
+            android:id="@+id/action_checkingRequestsFragment_to_themeOfDocFragment"
+            app:destination="@id/themeOfDocFragment" />
+        <action
+            android:id="@+id/action_checkingRequestsFragment_to_mostCopiedDocFragment"
+            app:destination="@id/mostCopiedDocFragment" />
+        <action
+            android:id="@+id/action_checkingRequestsFragment_to_mostReqCountDepFragment"
+            app:destination="@id/mostReqCountDepFragment" />
+        <action
+            android:id="@+id/action_checkingRequestsFragment_to_lastUsernameInDocFragment"
+            app:destination="@id/lastUsernameInDocFragment" />
     </fragment>
     <fragment
         android:id="@+id/reportFragment"
@@ -160,5 +178,77 @@
         <action
             android:id="@+id/action_deleteDocCopyFragment_to_adminPanelFragment"
             app:destination="@id/adminPanelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mostOftenDocFragment"
+        android:name="com.example.archive.screens.mostOftenDoc.MostOftenDocFragment"
+        android:label="MostOftenDocFragment" >
+        <action
+            android:id="@+id/action_mostOftenDocFragment_to_checkingRequestsFragment"
+            app:destination="@id/checkingRequestsFragment" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/docCountOnThemeFragment"
+        android:name="com.example.archive.screens.docCountOnTheme.DocCountOnThemeFragment"
+        android:label="DocCountOnThemeFragment" >
+        <action
+            android:id="@+id/action_docCountOnThemeFragment_to_checkingRequestsFragment"
+            app:destination="@id/checkingRequestsFragment" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/themeOfDocFragment"
+        android:name="com.example.archive.screens.themeOfDoc.ThemeOfDocFragment"
+        android:label="ThemeOfDocFragment" >
+        <action
+            android:id="@+id/action_themeOfDocFragment_to_checkingRequestsFragment"
+            app:destination="@id/checkingRequestsFragment" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mostCopiedDocFragment"
+        android:name="com.example.archive.screens.mostCopiedDoc.MostCopiedDocFragment"
+        android:label="MostCopiedDocFragment" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_mostCopiedDocFragment_to_checkingRequestsFragment"
+            app:destination="@id/checkingRequestsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mostReqCountDepFragment"
+        android:name="com.example.archive.screens.mostReqCountDep.MostReqCountDepFragment"
+        android:label="MostReqCountDepFragment" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_mostReqCountDepFragment_to_checkingRequestsFragment"
+            app:destination="@id/checkingRequestsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lastUsernameInDocFragment"
+        android:name="com.example.archive.screens.lastUsernameInDoc.LastUsernameInDocFragment"
+        android:label="LastUsernameInDocFragment" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_lastUsernameInDocFragment_to_checkingRequestsFragment"
+            app:destination="@id/checkingRequestsFragment" />
     </fragment>
 </navigation>

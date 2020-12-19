@@ -16,4 +16,8 @@ interface DocumentDao {
 
     @Query("SELECT * FROM document_table WHERE name_of_doc = :docName ORDER BY num ASC LIMIT 1")
     suspend fun get(docName: String) : Document?
+
+    @Query("SELECT * FROM document_table WHERE theme_of_doc = :docTheme")
+    suspend fun getDocsByTheme(docTheme: String) : List<Document>?
+
 }

@@ -1,5 +1,6 @@
 package com.example.archive.database.dao
 
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.example.archive.database.enteties.Cell
 
@@ -19,5 +20,11 @@ interface CellDao {
 
     @Query("SELECT * FROM cell_table WHERE doc_count = 0 ORDER BY cellId ASC LIMIT 1")
     suspend fun findEmptyCell() : Cell?
+
+    @Query("SELECT * FROM cell_table ORDER BY doc_count DESC LIMIT 1")
+    suspend fun getMostCopiedDocName() : Cell?
+
+    @Query("SELECT * FROM cell_table WHERE cellId = :cellId")
+    suspend fun getByCellId(cellId: Long): Cell?
 
 }

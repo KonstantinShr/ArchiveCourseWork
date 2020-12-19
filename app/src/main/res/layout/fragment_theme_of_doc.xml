@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.archive.screens.themeOfDoc.ThemeOfDocViewModel" />
+    </data>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.archive.screens.themeOfDoc.ThemeOfDocFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@{viewModel.themeOfDoc}"
+            app:layout_constraintBottom_toTopOf="@+id/themeOfDocBackBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/findThemeBtn" />
+
+        <TextView
+            android:id="@+id/enterNameOfDocTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Введите название документа"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/nameOfDocEditText"
+            app:layout_constraintStart_toStartOf="@+id/nameOfDocEditText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+            android:id="@+id/nameOfDocEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/findThemeBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/enterNameOfDocTV" />
+
+        <Button
+            android:id="@+id/findThemeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="узнать тему"
+            app:layout_constraintBottom_toTopOf="@+id/themeOfDocBackBtn"
+            app:layout_constraintStart_toStartOf="@+id/nameOfDocEditText"
+            app:layout_constraintTop_toBottomOf="@+id/nameOfDocEditText" />
+
+        <Button
+            android:id="@+id/themeOfDocBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:onClick="@{() -> viewModel.onBack()}"
+            android:text="назад"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
+</layout>
