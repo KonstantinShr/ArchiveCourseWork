@@ -1,9 +1,6 @@
 package com.example.archive.database.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 import com.example.archive.database.enteties.Document
 
 @Dao
@@ -16,4 +13,7 @@ interface DocumentDao {
 
     @Delete
     suspend fun delete(document: Document)
+
+    @Query("SELECT * FROM document_table WHERE name_of_doc = :docName ORDER BY num ASC LIMIT 1")
+    suspend fun get(docName: String) : Document?
 }

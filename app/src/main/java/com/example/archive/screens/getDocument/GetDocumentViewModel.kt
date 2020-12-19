@@ -57,6 +57,7 @@ class GetDocumentViewModel(
         val department = user?.let { database.departmentDao.get(user.depName) }
         if (department != null) {
             department.reqCount += 1
+            database.departmentDao.update(department)
         }
     }
 }

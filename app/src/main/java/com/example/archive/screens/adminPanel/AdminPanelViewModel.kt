@@ -33,4 +33,28 @@ class AdminPanelViewModel(val username: String?,
     fun doneNavigateToLoadNewDoc(){
         _navigateToCheckingRequest.value = null
     }
+
+    private var _navigateToChangeDepTelephone = MutableLiveData<String?>()
+    val navigateToChangeDepTelephone: LiveData<String?>
+        get() = _navigateToChangeDepTelephone
+
+    fun onChangeTelephone(){
+        _navigateToChangeDepTelephone.value = username
+    }
+
+    fun doneNavigateToChangeDepTelephone(){
+        _navigateToChangeDepTelephone.value = null
+    }
+
+    private var _navigateToDeleteDocCopy = MutableLiveData<String?>()
+    val navigateToDeleteDocCopy: LiveData<String?>
+        get() = _navigateToDeleteDocCopy
+
+    fun onDeleteDocCopy(){
+        _navigateToDeleteDocCopy.value = username
+    }
+
+    fun doneNavigateToDeleteDocCopy(){
+        _navigateToDeleteDocCopy.value = null
+    }
 }

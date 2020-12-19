@@ -49,6 +49,20 @@ class AdminPanelFragment : Fragment() {
             }
         })
 
+        viewModel.navigateToChangeDepTelephone.observe(viewLifecycleOwner, Observer { username: String? ->
+            username?.let{
+                this.findNavController().navigate(AdminPanelFragmentDirections.actionAdminPanelFragmentToChangeDepNumberFragment(username))
+                viewModel.doneNavigateToChangeDepTelephone()
+            }
+        })
+
+        viewModel.navigateToDeleteDocCopy.observe(viewLifecycleOwner, Observer { username: String? ->
+            username?.let{
+                this.findNavController().navigate(AdminPanelFragmentDirections.actionAdminPanelFragmentToDeleteDocCopyFragment(username))
+                viewModel.doneNavigateToDeleteDocCopy()
+            }
+        })
+
         return binding.root
     }
 

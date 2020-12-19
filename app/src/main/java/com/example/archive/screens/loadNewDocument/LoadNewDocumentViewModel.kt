@@ -26,7 +26,7 @@ class LoadNewDocumentViewModel(
         _navigateToAdminPanel.value = username
     }
 
-    fun doneNavigateToMain(){
+    fun doneNavigateToAdminPanel(){
         _navigateToAdminPanel.value = null
     }
 
@@ -65,14 +65,14 @@ class LoadNewDocumentViewModel(
     }
 
     private suspend fun createDoc(docName: String, docCopyCount: Int, docTheme:String){
-        fillCell(docName, docCopyCount, docTheme)
+        fillCell(docName, docCopyCount)
         for (i in 0 until docCopyCount){
             database.documentDao.insert(Document(nameDoc = docName, docTheme = docTheme))
         }
         Log.d("NEW DOCS: ", "new docs is made")
     }
 
-    private suspend fun fillCell(docName: String, docCopyCount: Int, docTheme:String){
+    private suspend fun fillCell(docName: String, docCopyCount: Int){
         val cell = database.cellDao.get(docName)
         if (cell == null){
             val emptyCell = database.cellDao.findEmptyCell()

@@ -44,6 +44,7 @@ class LoadNewDocumentFragment : Fragment() {
         viewModel.navigateToAdminPanel.observe(viewLifecycleOwner, Observer { username: String? ->
             username?.let{
                 this.findNavController().navigate(LoadNewDocumentFragmentDirections.actionLoadNewDocumentFragmentToAdminPanelFragment(username))
+                viewModel.doneNavigateToAdminPanel()
             }
         })
 
