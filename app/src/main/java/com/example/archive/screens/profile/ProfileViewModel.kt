@@ -21,7 +21,6 @@ class ProfileViewModel(
 
     fun onBack(){
         _navigateToMain.value = username
-        Log.d("USER'S PROFILE", user.toString())
     }
 
     fun doneNavigateToMain(){
@@ -36,12 +35,27 @@ class ProfileViewModel(
 
     private fun getUserProfile(){
         viewModelScope.launch {
-            user = getUser()
+            getUser()
         }
     }
 
-    private suspend fun getUser(): User? {
-        return username?.let { database.userDao.get(username) }
+    private var _userInfo = MutableLiveData<String?>()
+    val userInfo: LiveData<String?>
+        get() = _userInfo
+
+    private suspend fun getUser() {
+        val user = username?.let { database.userDao.get(username) }
+        val perm: String
+
+        if (user?.permissions == true){
+            perm = "Является администратором"
+        }
+        else{
+            perm = "Не является администратором"
+        }
+
+        _userInfo.value = "Данный аккаунт принадлежит следующему пользователю:\n\nФИО: ${user?.realName}\n" +
+                "username: ${user?.username}\nРаботает в следующем отделе: ${user?.depName}\n\n" + perm
     }
 
 }

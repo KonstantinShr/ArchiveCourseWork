@@ -27,4 +27,10 @@ interface CellDao {
     @Query("SELECT * FROM cell_table WHERE cellId = :cellId")
     suspend fun getByCellId(cellId: Long): Cell?
 
+    @Query("SELECT * FROM cell_table")
+    suspend fun getAllCell() : List<Cell>?
+
+    @Query("SELECT * FROM cell_table WHERE (:currentTime - creation_date) < 2629800000")
+    suspend fun lastMonthDocs(currentTime: Long): List<Cell>?
+
 }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -39,6 +40,15 @@ class CheckingRequestsFragment : Fragment() {
         binding.checkingRequestsViewModel = viewModel
         binding.lifecycleOwner = this
 
+        viewModel.adminPanelBtnVisibility.observe(viewLifecycleOwner, Observer { visibility: Boolean ->
+                if (visibility){
+                    binding.panelOfAdminBtn.visibility = View.VISIBLE
+                }
+                else{
+                    binding.panelOfAdminBtn.visibility = View.INVISIBLE
+                }
+        })
+
         viewModel.navigateToMain.observe(viewLifecycleOwner, Observer { username: String? ->
             username?.let{
                 this.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToMainFragment(username))
@@ -52,6 +62,49 @@ class CheckingRequestsFragment : Fragment() {
                 viewModel.doneNavigateToAdminPanel()
             }
         })
+
+        viewModel.navigateToMostOftenDoc.observe(viewLifecycleOwner, Observer{ username: String? ->
+            username?.let{
+                this.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToMostOftenDocFragment(username))
+                viewModel.doneNavigateToMostOftenDoc()
+            }
+        })
+
+        viewModel.navigateToDocCountOnTheme.observe(viewLifecycleOwner, Observer{ username: String? ->
+            username?.let{
+                this.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToDocCountOnThemeFragment(username))
+                viewModel.doneNavigateToDocCountOnTheme()
+            }
+        })
+
+        viewModel.navigateToMostCopiedDoc.observe(viewLifecycleOwner, Observer{ username: String? ->
+            username?.let{
+                this.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToMostCopiedDocFragment(username))
+                viewModel.doneNavigateToMostCopiedDoc()
+            }
+        })
+
+        viewModel.navigateToMostReqCountDep.observe(viewLifecycleOwner, Observer{ username: String? ->
+            username?.let{
+                this.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToMostReqCountDepFragment(username))
+                viewModel.doneNavigateToMostReqCountDep()
+            }
+        })
+
+        viewModel.navigateToLastUsernameInDoc.observe(viewLifecycleOwner, Observer{ username: String? ->
+            username?.let{
+                this.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToLastUsernameInDocFragment(username))
+                viewModel.doneNavigateToLastUsernameInDoc()
+            }
+        })
+
+        viewModel.navigateToThemeOfDoc.observe(viewLifecycleOwner, Observer{ username: String? ->
+            username?.let{
+                this.findNavController().navigate(CheckingRequestsFragmentDirections.actionCheckingRequestsFragmentToThemeOfDocFragment(username))
+                viewModel.doneNavigateToThemeOfDoc()
+            }
+        })
+
         return binding.root
     }
 }

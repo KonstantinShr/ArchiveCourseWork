@@ -19,23 +19,25 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="PROFILE FRAGMENT"
-            android:textSize="30sp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="-172dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@{profileViewModel.userInfo}"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/profileBackBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="назад"
+            android:layout_marginBottom="40dp"
             android:onClick="@{() -> profileViewModel.onBack()}"
+            android:text="назад"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

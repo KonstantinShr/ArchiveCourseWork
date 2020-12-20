@@ -54,9 +54,21 @@ class MainFragment : Fragment() {
             }
         })
 
-        //binding.clientReportBtn.setOnClickListener(onClickListener)
+        viewModel.navigateToGetReference.observe(viewLifecycleOwner, Observer { username: String? ->
+            username?.let{
+                this.findNavController().navigate(MainFragmentDirections.actionMainFragmentToChoseDepForReferenceFragment(username))
+                viewModel.doneNavigateToGetReference()
+            }
+        })
+
+        viewModel.navigateToGetReport.observe(viewLifecycleOwner, Observer { username: String? ->
+            username?.let{
+                this.findNavController().navigate(MainFragmentDirections.actionMainFragmentToReportFragment(username))
+                viewModel.doneNavigateToGetReport()
+            }
+        })
+
         binding.requestDocBtn.setOnClickListener(onClickListener)
-        //binding.workReportBtn.setOnClickListener(onClickListener)
         binding.exitBtn.setOnClickListener(onClickListener)
 
         return binding.root
@@ -64,10 +76,7 @@ class MainFragment : Fragment() {
 
     private val onClickListener = View.OnClickListener { view: View ->
         when (view.id){
-            //binding.clientReportBtn.id, binding.workReportBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToReportFragment())
-
             binding.requestDocBtn.id -> view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToGetDocumentFragment(arguments.username))
-
 
             binding.exitBtn.id -> {
                 view.findNavController().navigate(MainFragmentDirections.actionMainFragmentToSignInFragment())

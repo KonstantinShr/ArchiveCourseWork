@@ -40,6 +40,9 @@
         <argument android:name="username"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_choseDepForReferenceFragment"
+            app:destination="@id/choseDepForReferenceFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -121,6 +124,10 @@
         <action
             android:id="@+id/action_reportFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/adminPanelFragment"
@@ -250,5 +257,37 @@
         <action
             android:id="@+id/action_lastUsernameInDocFragment_to_checkingRequestsFragment"
             app:destination="@id/checkingRequestsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choseDepForReferenceFragment"
+        android:name="com.example.archive.screens.choseDepForReference.ChoseDepForReferenceFragment"
+        android:label="ChoseDepForReferenceFragment" >
+        <action
+            android:id="@+id/action_choseDepForReferenceFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_choseDepForReferenceFragment_to_referenceFragment"
+            app:destination="@id/referenceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/referenceFragment"
+        android:name="com.example.archive.screens.reference.ReferenceFragment"
+        android:label="fragment_reference"
+        tools:layout="@layout/fragment_reference" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="depName"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_referenceFragment_to_choseDepForReferenceFragment"
+            app:destination="@id/choseDepForReferenceFragment" />
     </fragment>
 </navigation>

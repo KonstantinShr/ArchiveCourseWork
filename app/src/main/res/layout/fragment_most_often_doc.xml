@@ -13,7 +13,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.archive.screens.mostOftenDoc.MostOftenDocFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -30,12 +29,14 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@{viewModel.mostOftenDocName}"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="-31dp"
-            tools:layout_editor_absoluteY="6dp" />
+            app:layout_constraintBottom_toTopOf="@+id/mostOftenDocBackBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

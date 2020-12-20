@@ -83,6 +83,7 @@ class LoadNewDocumentViewModel(
             else{
                 emptyCell.docInCell = docName
                 emptyCell.docCount = docCopyCount
+                emptyCell.creationDate = System.currentTimeMillis()
                 database.cellDao.update(emptyCell)
                 Log.d("REMADE CELL: ", "EMPTY CELL WAS REFILLED")
             }

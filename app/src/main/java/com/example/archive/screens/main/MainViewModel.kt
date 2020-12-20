@@ -34,4 +34,28 @@ class MainViewModel(
     fun doneNavigateToCheckingReq(){
         _navigateToCheckingReq.value = null
     }
+
+    private var _navigateToGetReference = MutableLiveData<String?>()
+    val navigateToGetReference: LiveData<String?>
+        get() = _navigateToGetReference
+
+    fun onGetReference(){
+        _navigateToGetReference.value = username
+    }
+
+    fun doneNavigateToGetReference(){
+        _navigateToGetReference.value = null
+    }
+
+    private var _navigateToGetReport = MutableLiveData<String?>()
+    val navigateToGetReport: LiveData<String?>
+        get() = _navigateToGetReport
+
+    fun onGetReport(){
+        _navigateToGetReport.value = username
+    }
+
+    fun doneNavigateToGetReport(){
+        _navigateToGetReport.value = null
+    }
 }

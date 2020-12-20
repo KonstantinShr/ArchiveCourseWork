@@ -6,10 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.archive.R
+import com.example.archive.database.ArchiveDatabase
 import com.example.archive.databinding.FragmentGetDocumentBinding
 import com.example.archive.databinding.FragmentReportBinding
+import com.example.archive.screens.checkingRequests.CheckingRequestsFragmentDirections
 
 class ReportFragment : Fragment() {
 
@@ -22,13 +27,27 @@ class ReportFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_report, container, false)
 
-        binding.reportBackBtn.setOnClickListener(onClickListener)
+        val arguments = ReportFragmentArgs.fromBundle(requireArguments())
+
+        val application = requireNotNull(this.activity).application
+
+        val database = ArchiveDatabase.getInstance(application)
+
+        val viewModelFactory = ReportViewModelFactory(arguments.username, database, application)
+
+        val viewModel = ViewModelProvider(this, viewModelFactory).get(ReportViewModel::class.java)
+
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+
+        viewModel.navigateToMain.observe(viewLifecycleOwner, Observer { username: String? ->
+            username?.let{
+                this.findNavController().navigate(ReportFragmentDirections.actionReportFragmentToMainFragment(username))
+                viewModel.doneNavigateToMain()
+            }
+        })
         return binding.root
     }
 
-    private val onClickListener = View.OnClickListener { view: View ->
-        when (view.id){
-            //binding.reportBackBtn.id -> view.findNavController().navigate(ReportFragmentDirections.actionReportFragmentToMainFragment())
-        }
-    }
+
 }

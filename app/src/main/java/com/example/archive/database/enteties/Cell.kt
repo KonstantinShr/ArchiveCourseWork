@@ -17,5 +17,5 @@ data class Cell(
         var docCount: Int = 0,
 
         @ColumnInfo(name = "creation_date")
-        val creationDate: Long = System.currentTimeMillis()
+        var creationDate: Long = System.currentTimeMillis()
 )

@@ -13,4 +13,7 @@ interface RequestDao {
     @Query("SELECT *, COUNT(cell_number) AS amount FROM requests_table GROUP BY cell_number ORDER BY amount DESC LIMIT 1")
     suspend fun getMostOftenCell() : Request?
 
+    @Query("SELECT * FROM requests_table WHERE cell_number = :cellId LIMIT 1")
+    suspend fun lastReqToCell(cellId: Long) : Request?
+
 }

@@ -67,12 +67,12 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:text="изменить"
-            app:layout_constraintBottom_toTopOf="@+id/changeNumberBackBtn"
+            app:layout_constraintBottom_toTopOf="@+id/changeDepNumberBackBtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/newNumberEditText" />
 
         <Button
-            android:id="@+id/changeNumberBackBtn"
+            android:id="@+id/changeDepNumberBackBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
