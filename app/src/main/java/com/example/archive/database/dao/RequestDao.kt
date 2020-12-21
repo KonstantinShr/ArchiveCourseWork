@@ -1,7 +1,8 @@
 package com.example.archive.database.dao
 
-import androidx.room.*
-import com.example.archive.database.enteties.Cell
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
 import com.example.archive.database.enteties.Request
 
 

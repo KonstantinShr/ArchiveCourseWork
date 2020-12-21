@@ -1,7 +1,9 @@
 package com.example.archive.database.enteties
 
-import androidx.room.*
-import java.util.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.Index
+import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "cell_table",
